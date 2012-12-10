@@ -11,7 +11,7 @@ class ShopsController < ApplicationController
     if @shop.save
       flash[:success] = t('shops.shop_successfully_listed')
     else
-      flash[:error] = t('shops.shop_listing_failed')
+      flash[:error] = t('shops.shop_listing_failed_because', errors: @shop.errors.full_messages.join('. '))
     end
 
     redirect_to Shop
