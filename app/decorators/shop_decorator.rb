@@ -22,6 +22,6 @@ class ShopDecorator < Draper::Base
   end
 
   def location
-    "#{shop.location_x}, #{shop.location_y}, #{shop.location_z}"
+    "#{shop.world.capitalize} #{shop.location_x}, #{shop.location_y}, #{shop.location_z}"
   end
 end
