@@ -17,3 +17,21 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+group :test, :development do
+  gem 'pry'
+  gem 'foreman'
+  gem 'forgery'
+  gem 'heroku'
+  gem 'machinist'
+  gem 'rspec-rails'
+  gem 'tddium'
+  gem 'rails-erd'
+end
+
+group :test do
+  gem 'capybara-webkit'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'simplecov'
+end
