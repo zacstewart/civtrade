@@ -3,27 +3,16 @@
     button type="button" class="close" data-dismiss="modal" ×
     h3= t('shops.new_shop')
   .modal-body
-    .control-group
-      = f.input :item
-    .control-group
-      = f.input :sell_amount
-    .control-group
-      = f.input :sell_price
-    .control-group
-      = f.input :sell_currency, collection: Shop::CURRENCIES
-    .control-group
-      = f.input :buy_amount
-    .control-group
-      = f.input :buy_price
-    .control-group
-      = f.input :buy_currency, collection: Shop::CURRENCIES
-    .control-group
-      = f.input :world, collection: Shop::WORLDS.map {|w| [w.capitalize, w] }
-    .control-group
-      = f.input :location_x
-    .control-group
-      = f.input :location_y
-    .control-group
-      = f.input :location_z
+    = f.input :item
+    = f.input :sell_amount
+    = f.input :sell_price
+    = f.input :sell_currency, collection: Shop::CURRENCIES
+    = f.input :buy_amount
+    = f.input :buy_price
+    = f.input :buy_currency, collection: Shop::CURRENCIES
+    = f.input :world, collection: Shop::WORLDS.map {|w| [w.capitalize, w] }
+    = f.input :location_x
+    = f.input :location_y
+    = f.input :location_z
   .modal-footer
     = f.submit t('shops.list_shop'), class: 'btn btn-primary'
