@@ -6,12 +6,13 @@
     = f.input :item
     = f.input :sell_amount
     = f.input :sell_price
-    = f.input :sell_currency
+    = f.input :sell_currency, collection: Shop::CURRENCIES
     = f.input :buy_amount
     = f.input :buy_price
-    = f.input :buy_currency
+    = f.input :buy_currency, collection: Shop::CURRENCIES
+    = f.input :world, collection: Shop::WORLDS.map {|w| [w.capitalize, w] }
     = f.input :location_x
     = f.input :location_y
     = f.input :location_z
   .modal-footer
-    = f.submit nil, class: 'btn btn-primary'
+    = f.submit t('shops.list_shop'), class: 'btn btn-primary'

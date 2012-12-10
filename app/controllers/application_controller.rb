@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   before_filter :initialize_new_shop
 
   def initialize_new_shop
-    @new_shop = Shop.new
+    @new_shop = ShopDecorator.new(Shop.new)
   end
 end

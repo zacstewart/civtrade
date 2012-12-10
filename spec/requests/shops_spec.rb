@@ -9,7 +9,8 @@ describe 'Shops' do
         fill_in 'Item', with: 'Iron Ingot'
         fill_in 'Sell amount', with: Forgery::Basic.number
         fill_in 'Sell price', with: Forgery::Basic.number
-        fill_in 'Sell currency', with: 'c'
+        select 'c', from: 'Sell currency'
+        select 'Overworld', from: 'World'
         fill_in 'Location x', with: Forgery::Basic.number
         fill_in 'Location y', with: Forgery::Basic.number
         fill_in 'Location z', with: Forgery::Basic.number
@@ -25,7 +26,8 @@ describe 'Shops' do
         fill_in 'Item', with: 'Iron Ingot'
         fill_in 'Buy amount', with: Forgery::Basic.number
         fill_in 'Buy price', with: Forgery::Basic.number
-        fill_in 'Buy currency', with: 'c'
+        select 'c', from: 'Buy currency'
+        select 'Overworld', from: 'World'
         fill_in 'Location x', with: Forgery::Basic.number
         fill_in 'Location y', with: Forgery::Basic.number
         fill_in 'Location z', with: Forgery::Basic.number
@@ -41,7 +43,8 @@ describe 'Shops' do
         fill_in 'Item', with: 'Iron Ingot'
         fill_in 'Buy amount', with: Forgery::Basic.number
         fill_in 'Buy price', with: Forgery::Basic.number
-        fill_in 'Buy currency', with: 'x'
+        select '', from: 'Buy currency'
+        select 'Overworld', from: 'World'
         fill_in 'Location x', with: Forgery::Basic.number
         fill_in 'Location y', with: Forgery::Basic.number
         fill_in 'Location z', with: Forgery::Basic.number

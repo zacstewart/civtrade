@@ -5,5 +5,6 @@ en:
   hello: "Hello world"
   shops:
     new_shop: 'New Shop'
+    list_shop: 'List Shop'
     shop_successfully_listed: 'Shop successfully listed'
-    shop_listing_failed:  'Shop listing failed'
+    shop_listing_failed_because:  'Shop listing failed because: %{errors}'
