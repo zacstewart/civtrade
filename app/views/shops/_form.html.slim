@@ -1,0 +1,17 @@
+= simple_form_for(shop, html: {class: 'modal hide fade'}) do |f|
+  .modal-header
+    button type="button" class="close" data-dismiss="modal" ×
+    h3= t('shops.new_shop')
+  .modal-body
+    = f.input :item
+    = f.input :sell_amount
+    = f.input :sell_price
+    = f.input :sell_currency
+    = f.input :buy_amount
+    = f.input :buy_price
+    = f.input :buy_currency
+    = f.input :location_x
+    = f.input :location_y
+    = f.input :location_z
+  .modal-footer
+    = f.submit nil, class: 'btn btn-primary'

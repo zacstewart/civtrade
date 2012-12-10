@@ -1,0 +1,20 @@
+DOCTYPE html
+html
+  head
+    title CivTrade
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  body
+    .container
+      .header.clearfix
+        h1
+          ' CivTrade
+          small= link_to root_path do
+            i.icon-home
+      - flash.each do |severity, message|
+        .alert(class="alert-#{severity}")
+          button.close type="button" class="close" data-dismiss="alert" ×
+          = message
+      == yield
+      = render 'shops/form', shop: @new_shop
