@@ -9,6 +9,10 @@ class Shop < ActiveRecord::Base
   validates :buy_currency, :sell_currency, inclusion: {in: CURRENCIES}, allow_blank: true
   validates :world, inclusion: {in: WORLDS}
 
+  has_many :reports
+
+  scope :best, order('reports_count ASC')
+
   def buying?
     buy_amount.present? && buy_price.present? && buy_currency.present?
   end

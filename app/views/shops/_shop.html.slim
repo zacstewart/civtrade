@@ -1,5 +1,9 @@
-tr
+tr(id=dom_id(shop))
   td= shop.item
   td= shop.buy_for
   td= shop.sell_for
   td= shop.location
+  td.reports
+    span.badge.badge-inverse= shop.reports_count
+  td= link_to shop_reports_path(shop), method: :post, class: 'report btn btn-danger', title: t('reports.report') do
+    i.icon-thumbs-down

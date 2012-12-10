@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121210194421) do
+ActiveRecord::Schema.define(:version => 20121210203742) do
+
+  create_table "reports", :force => true do |t|
+    t.integer  "shop_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "shops", :force => true do |t|
     t.string   "item"
@@ -22,11 +28,12 @@ ActiveRecord::Schema.define(:version => 20121210194421) do
     t.float    "location_x"
     t.float    "location_y"
     t.float    "location_z"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.integer  "buy_amount"
     t.integer  "sell_amount"
     t.string   "world"
+    t.integer  "reports_count", :default => 0
   end
 
 end

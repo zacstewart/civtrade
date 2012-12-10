@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
   def index
-    @shops = Shop.page(params[:page])
+    @shops = Shop.best.page(params[:page])
     @shops = @shops.where('lower(item) = lower(?)', params[:search]) if params[:search].present?
     @shops = ShopDecorator.decorate(@shops)
   end
