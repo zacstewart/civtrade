@@ -14,11 +14,11 @@ class ShopDecorator < Draper::Base
   end
 
   def buy_price_with_currency
-    shop.buy_price.to_s + shop.buy_currency
+    shop.buy_price.to_s + shop.buy_currency if shop.buy_price && shop.buy_currency
   end
 
   def sell_price_with_currency
-    shop.sell_price.to_s + shop.sell_currency
+    shop.sell_price.to_s + shop.sell_currency if shop.sell_price && shop.sell_currency
   end
 
   def location
