@@ -10,6 +10,7 @@ describe 'Shops' do
         fill_in 'Sell amount', with: Forgery::Basic.number
         fill_in 'Sell price', with: Forgery::Basic.number
         select 'c', from: 'Sell currency'
+        fill_in 'City', with: 'Aristopolis'
         select 'Overworld', from: 'World'
         fill_in 'Location x', with: Forgery::Basic.number
         fill_in 'Location y', with: Forgery::Basic.number

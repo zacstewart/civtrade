@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121210203742) do
+ActiveRecord::Schema.define(:version => 20121215224113) do
 
   create_table "reports", :force => true do |t|
     t.integer  "shop_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20121210203742) do
     t.integer  "sell_amount"
     t.string   "world"
     t.integer  "reports_count", :default => 0
+    t.string   "city"
   end
 
 end
