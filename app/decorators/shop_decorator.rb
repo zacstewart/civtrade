@@ -3,7 +3,7 @@ class ShopDecorator < Draper::Base
 
   def item_name
     if shop.item.present?
-      h.link_to(shop.item_name, shop.item)
+      h.link_to(shop.item.name, shop.item)
     else
       shop.item_name
     end
