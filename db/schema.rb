@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121215224113) do
+ActiveRecord::Schema.define(:version => 20121216073516) do
+
+  create_table "items", :force => true do |t|
+    t.string   "block_id"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "reports", :force => true do |t|
     t.integer  "shop_id"
@@ -20,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20121215224113) do
   end
 
   create_table "shops", :force => true do |t|
-    t.string   "item"
+    t.string   "item_name"
     t.integer  "buy_price"
     t.string   "buy_currency"
     t.integer  "sell_price"
@@ -35,6 +42,9 @@ ActiveRecord::Schema.define(:version => 20121215224113) do
     t.string   "world"
     t.integer  "reports_count", :default => 0
     t.string   "city"
+    t.integer  "item_id"
   end
+
+  add_index "shops", ["item_id"], :name => "index_shops_on_item_id"
 
 end

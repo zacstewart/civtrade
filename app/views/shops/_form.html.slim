@@ -3,7 +3,7 @@
     button type="button" class="close" data-dismiss="modal" ×
     h3= t('shops.new_shop')
   .modal-body
-    = f.input :item
+    = f.input :item_name, label: t('shops.item_name')
     = f.input :sell_amount
     = f.input :sell_price
     = f.input :sell_currency, collection: Shop::CURRENCIES

@@ -1,7 +1,7 @@
 class ShopsController < ApplicationController
   def index
     @shops = Shop.best.page(params[:page])
-    @shops = @shops.where('lower(item) = lower(?)', params[:search]) if params[:search].present?
+    @shops = @shops.where('lower(item_name) = lower(?)', params[:search]) if params[:search].present?
     @shops = ShopDecorator.decorate(@shops)
   end
 
@@ -20,7 +20,7 @@ class ShopsController < ApplicationController
   private
 
   def shop_params
-    params[:shop].permit(:item, :buy_amount ,:buy_price, :buy_currency,
+    params[:shop].permit(:item_name, :buy_amount ,:buy_price, :buy_currency,
                          :sell_amount, :sell_price, :sell_currency,
                          :world, :location_x, :location_y, :location_z)
   end

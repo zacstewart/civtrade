@@ -1,6 +1,14 @@
 class ShopDecorator < Draper::Base
   decorates :shop
 
+  def item_name
+    if shop.item.present?
+      h.link_to(shop.item_name, shop.item)
+    else
+      shop.item_name
+    end
+  end
+
   def buy_for
     if shop.buy_amount.present?
       "#{shop.buy_amount} for #{buy_price_with_currency}"

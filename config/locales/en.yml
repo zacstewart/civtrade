@@ -8,6 +8,7 @@ en:
     list_shop: 'List Shop'
     shop_successfully_listed: 'Shop successfully listed'
     shop_listing_failed_because:  'Shop listing failed because: %{errors}'
+    item_name: 'Item'
   reports:
     report: 'Report'
     reports: 'Reports'

@@ -1,3 +1,10 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+$ ->
+  $('#shop_item_name').typeahead
+    source: (query, process) ->
+      $.ajax
+        url: '/items'
+        dataType: 'json'
+        data:
+          term: query
+        success: (data) ->
+          process $.map(data, (item) -> item.name)

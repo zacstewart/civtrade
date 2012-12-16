@@ -1,7 +1,7 @@
 require 'machinist/active_record'
 
 Shop.blueprint do
-  item { 'Iron Ingot' }
+  item_name { 'Iron Ingot' }
   sell_amount { Forgery::Basic.number }
   sell_price { Forgery::Basic.number }
   sell_currency { 'i' }
