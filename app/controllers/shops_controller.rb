@@ -22,6 +22,6 @@ class ShopsController < ApplicationController
   def shop_params
     params[:shop].permit(:item_name, :buy_amount ,:buy_price, :buy_currency,
                          :sell_amount, :sell_price, :sell_currency,
-                         :world, :location_x, :location_y, :location_z)
+                         :city, :world, :location_x, :location_y, :location_z)
   end
 end
