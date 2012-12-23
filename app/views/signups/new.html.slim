@@ -1,5 +1,5 @@
 h1 Sign up
-= simple_form_for(@signup, html: {class: 'form-horizontal'}) do |f|
+= simple_form_for(@signup, url: signup_path, html: {class: 'form-horizontal'}) do |f|
   = f.input :username, placeholder: 'In-game username'
   = f.input :password, placeholder: 'Civtrade password'
   = f.input :password_confirmation, placeholder: 'Civtrade password again'
