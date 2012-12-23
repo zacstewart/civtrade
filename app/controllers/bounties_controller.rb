@@ -2,11 +2,11 @@ class BountiesController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
   def index
-    @bounties = Bounty.newest.page(params[:page])
+    @bounties = BountyDecorator.newest.page(params[:page])
   end
 
   def show
-    @bounty = Bounty.find(params[:id])
+    @bounty = BountyDecorator.find(params[:id])
   end
 
   def new
