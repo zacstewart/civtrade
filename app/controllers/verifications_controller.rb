@@ -6,8 +6,7 @@ class VerificationsController < ApplicationController
   def create
     @verifier = MinecraftAccountVerifier.new(current_user.username)
 
-    if @verifier.authentic?
-      current_user.mark_verified
+    if @verifier.authentic? && current_user.mark_verified
       flash[:success] = t('verifications.you_have_been_verified')
       redirect_to root_path
     else
