@@ -45,6 +45,6 @@ class Signup
 
   private
   def persist!
-    @user = User.create!(username: username, password: password)
+    @user = User.create!(username: username, password: password, state: 'unverified')
   end
 end

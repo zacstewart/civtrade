@@ -11,6 +11,7 @@ CivTrade::Application.routes.draw do
 
   resource :signup
   resource :session
+  resource :verification
 
   resources :users, only: :show
 

@@ -16,6 +16,10 @@ en:
     your_report_couldnt_be_saved: "Your report couldn't be saved"
   user:
     name: 'Name'
+  verifications:
+    get_verified: 'Get verified'
+    verify_me: 'Verify me!'
+    you_have_been_verified: "Congratulations, you've been verified"
   bounties:
     bounties: 'Bounties'
     new_bounty: 'New bounty'

@@ -2,55 +2,53 @@ class MinecraftAccountVerifier
   require 'net/http'
   require 'uri'
 
-  AUTH_URI = URI.parse('https://login.minecraft.net/').freeze
-  CLIENT_VERSION = 13
+  SKINS_S3_BUCKET = 's3.amazonaws.com'.freeze
 
   attr_reader :error
 
   # Public: verify an account as a true Minecraft account this user has access to.
   #
-  # login    - the username or email used to log into the Minecraft client
   # username - both the username for this service and their in-game identity
-  # password - password used to log into the Minecraft client
-  def initialize(login, username, password, http_requester=Net::HTTP)
-    @login = login
+  def initialize(username)
     @username = username
-    @password = password
-    @http_requester = http_requester
   end
 
   def authentic?
-    response = login.body
+    if user_skin
+      return true if skin_difference == 0.0
 
-    if response =~ username_regex
-      true
+      @error = "Skin does not match verification skin. Please wait a minute or try uploading the skin again. (#{skin_difference}% different)"
+      false
     else
-      @error = login.body.chomp
+      @error = 'Your skin was not found. Please note that your username is case sensitive'
       false
     end
   end
 
   private
-  def username_regex
-    Regexp.new(@username, 'i')
+  def skin_difference
+    diffs = []
+    user_skin.height.times do |y|
+      user_skin.row(y).each_with_index do |pixel, x|
+        diffs << [x, y] unless pixel == verification_skin[x, y]
+      end
+    end
+    diffs.length.to_f / verification_skin.pixels.length * 100
   end
 
-  def request_parameters
-    {
-      'user' => @login,
-      'password' => @password,
-      'version' => CLIENT_VERSION
-    }
+  def user_skin
+    @user_skin ||=
+      Net::HTTP.start(SKINS_S3_BUCKET) do |http|
+        response = http.get("/MinecraftSkins/#{@username}.png")
+        if response.code == '200'
+          datastream = ChunkyPNG::Datastream.from_blob(response.body)
+          return ChunkyPNG::Image.from_datastream(datastream)
+        end
+      end
   end
 
-  def login
-    request = Net::HTTP::Post.new(AUTH_URI.request_uri)
-    request.set_form_data(request_parameters)
-
-    http = Net::HTTP.new(AUTH_URI.host, AUTH_URI.port)
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_PEER
-
-    http.request(request)
+  def verification_skin
+    @verification_skin ||=
+      ChunkyPNG::Image.from_file(Rails.root.join('public/verification_skin.png'))
   end
 end
