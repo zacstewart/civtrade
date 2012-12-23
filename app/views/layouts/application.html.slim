@@ -24,3 +24,10 @@ html
           = message
       == yield
       = render 'shops/form', shop: @new_shop
+    javascript:
+      var uvOptions = {};
+      (function() {
+        var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+        uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/cry15DyaEJNFVAeL8LxVQ.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+      })();
