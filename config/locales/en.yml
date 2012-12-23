@@ -30,7 +30,7 @@ en:
     post: 'Post pledge'
     created: 'Pledge posted to bounty'
     couldnt_be_created: "Your pledge couldn't be posted. Please try again"
-    amount_explanation: "Use physicalshop format if you are pledging on of the currencies. This makes it possible to aggregate pledges and valuate bounties"
+    amount_explanation: "Use physicalshop format if you are pledging one of the currencies. This makes it possible to aggregate pledges and valuate bounties"
     amount: 'Amount'
     amount_placeholder: '64d'
   signups:
