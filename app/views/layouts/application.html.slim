@@ -21,7 +21,7 @@ html
           ul.nav.pull-right
             - if current_user.anonymous?
               li= link_to t('sessions.sign_in'), new_session_path
-              li= link_to t('sign_up'), new_signup_path
+              li= link_to t('signups.sign_up'), new_signup_path
             - else
               li= link_to current_user do
                 = image_tag current_user.avatar(16)
