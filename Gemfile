@@ -11,6 +11,8 @@ gem 'strong_parameters'
 gem 'simple_form'
 gem 'bcrypt-ruby'
 gem 'virtus'
+gem 'chunky_png'
+gem 'state_machine'
 
 group :assets do
   gem 'sass-rails',    '~> 3.2.3'

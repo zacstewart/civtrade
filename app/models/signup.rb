@@ -28,13 +28,13 @@ class Signup
   end
 
   def is_unique_username
-    if User.where(username: username).exists?
+    if User.where('lower(username) = lower(?)', username).exists?
       errors.add(:username, 'is already signed up')
     end
   end
 
   private
   def persist!
-    @user = User.create!(username: username, password: password)
+    @user = User.create!(username: username, password: password, state: 'unverified')
   end
 end

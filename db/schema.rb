@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121223082024) do
+ActiveRecord::Schema.define(:version => 20121223193818) do
 
   create_table "bounties", :force => true do |t|
     t.string   "username"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20121223082024) do
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "state"
   end
 
   add_index "users", ["username"], :name => "index_users_on_username"

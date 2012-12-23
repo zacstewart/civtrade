@@ -12,7 +12,7 @@ class Session
   attr_reader :user
 
   def authenticate
-    user = User.where(username: username).first
+    user = User.where('lower(username) = lower(?)', username).first
 
     if user && user.authenticate(password)
       @user = user

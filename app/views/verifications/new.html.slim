@@ -1,0 +1,14 @@
+h1= t('verifications.get_verified')
+= form_tag(verification_path) do
+  ol
+    li
+      ' Download the
+      = link_to 'verification skin', '/verification_skin.png'
+      '
+      ' (right click, save as)
+    li
+      ' Upload the skin to your
+      = link_to 'Minecraft profile', 'http://minecraft.net/profile'
+    li Click "#{t('verifications.verify_me')}"
+  .form-actions
+    = submit_tag t('verifications.verify_me'), class: 'btn btn-primary'
