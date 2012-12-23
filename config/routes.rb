@@ -5,5 +5,10 @@ CivTrade::Application.routes.draw do
     resources :reports, only: :create
   end
 
+  resource :signup
+  resource :session
+
+  resources :users
+
   root to: 'shops#index'
 end

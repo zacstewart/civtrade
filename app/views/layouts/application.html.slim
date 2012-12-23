@@ -18,6 +18,16 @@ html
               i.icon-home
               '
               = t('home')
+          ul.nav.pull-right
+            - if current_user.anonymous?
+              li= link_to t('sessions.sign_in'), new_session_path
+              li= link_to t('sign_up'), new_signup_path
+            - else
+              li= link_to current_user do
+                = image_tag current_user.avatar(16)
+                '
+                = current_user.username
+              li= link_to t('sessions.sign_out'), session_path, method: :delete
       - flash.each do |severity, message|
         .alert(class="alert-#{severity}")
           button.close type="button" class="close" data-dismiss="alert" ×

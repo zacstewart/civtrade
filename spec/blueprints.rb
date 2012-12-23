@@ -19,3 +19,8 @@ Shop.blueprint do
   location_y { Forgery::Basic.number }
   location_z { Forgery::Basic.number }
 end
+
+User.blueprint do
+  username { Forgery::Internet.user_name }
+  password { Forgery::Basic.password }
+end

@@ -14,3 +14,13 @@ en:
     reports: 'Reports'
     shop_reported: 'Shop reported'
     your_report_couldnt_be_saved: "Your report couldn't be saved"
+  signups:
+    sign_up: 'Sign up'
+    signup_failed: 'Your signup failed for some reason. Please try again'
+    minecraft_password_hint: 'This will never, ever, ever be saved. It is used once to validate that you are the owner of this Minecraft account. It is never stored on this or any other system and the connection to the Minecraft auth server is done securely over SSL.'
+  sessions:
+    sign_in: 'Sign in'
+    sign_out: 'Sign out'
+    welcome_username: 'Welcome, %{username}!'
+    sign_in_failed: 'Sign in failed'
+    youve_been_signed_out: "You've been signed out"

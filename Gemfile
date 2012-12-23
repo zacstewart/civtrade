@@ -9,6 +9,8 @@ gem 'kaminari-bootstrap'
 gem 'draper'
 gem 'strong_parameters'
 gem 'simple_form'
+gem 'bcrypt-ruby'
+gem 'virtus'
 
 group :assets do
   gem 'sass-rails',    '~> 3.2.3'

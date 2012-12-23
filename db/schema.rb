@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121223021815) do
+ActiveRecord::Schema.define(:version => 20121223052139) do
 
   create_table "items", :force => true do |t|
     t.string   "block_id"
@@ -51,5 +51,14 @@ ActiveRecord::Schema.define(:version => 20121223021815) do
   end
 
   add_index "shops", ["item_id"], :name => "index_shops_on_item_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "password_digest"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "users", ["username"], :name => "index_users_on_username"
 
 end
