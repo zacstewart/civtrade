@@ -1,7 +1,13 @@
 require 'machinist/active_record'
 
+Item.blueprint do
+  name { 'Iron Ingot' }
+  block_id { 265 }
+end
+
 Shop.blueprint do
   item_name { 'Iron Ingot' }
+  item { Item.make }
   sell_amount { Forgery::Basic.number }
   sell_price { Forgery::Basic.number }
   sell_currency { 'i' }
