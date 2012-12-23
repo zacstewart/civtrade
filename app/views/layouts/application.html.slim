@@ -1,7 +1,7 @@
 DOCTYPE html
 html
   head
-    title CivTrade
+    title Civtrade
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
@@ -9,9 +9,15 @@ html
     .container
       .header.clearfix
         h1
-          ' CivTrade
-          small= link_to root_path do
-            i.icon-home
+          ' Civtrade
+
+      .navbar
+        .navbar-inner
+          ul.nav
+            li= link_to root_path do
+              i.icon-home
+              '
+              = t('home')
       - flash.each do |severity, message|
         .alert(class="alert-#{severity}")
           button.close type="button" class="close" data-dismiss="alert" ×
