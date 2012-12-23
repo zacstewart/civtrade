@@ -1,0 +1,6 @@
+tr
+  td= link_to bounty do
+    = image_tag bounty.user.avatar(32)
+  td= link_to bounty do
+    = bounty.user.username
+  td= bounty.pledges_count

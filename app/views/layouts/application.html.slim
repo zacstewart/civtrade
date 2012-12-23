@@ -18,6 +18,8 @@ html
               i.icon-home
               '
               = t('home')
+            li= link_to t('shops.shops'), shops_path
+            li= link_to t('bounties.bounties'), bounties_path
           ul.nav.pull-right
             - if current_user.anonymous?
               li= link_to t('sessions.sign_in'), new_session_path
@@ -34,6 +36,7 @@ html
           = message
       == yield
       = render 'shops/form', shop: @new_shop
+      = render 'bounties/form', bounty: @new_bounty
     javascript:
       var uvOptions = {};
       (function() {

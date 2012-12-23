@@ -1,10 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :initialize_new_shop
+  before_filter :initialize_new_shop, :initialize_new_bounty
 
   def initialize_new_shop
     @new_shop = ShopDecorator.new(Shop.new)
+  end
+
+  def initialize_new_bounty
+    @new_bounty = BountyWithPledge.new
   end
 
   def sign_in(user)
@@ -33,4 +37,11 @@ class ApplicationController < ActionController::Base
       end
   end
   helper_method :current_user
+
+  def authenticate_user!
+    unless signed_in?
+      flash[:notice] = t('sessions.must_be_signed_in')
+      redirect_to new_session_path
+    end
+  end
 end

@@ -3,7 +3,7 @@
   = text_field_tag :search, params[:search], placeholder: 'Search…', class: 'input-medium search-query'
   = button_tag t('shops.search'), type: 'submit', class: 'btn'
 
-table.table
+table.table.table-striped
   thead
     tr
       th= t('shops.item')

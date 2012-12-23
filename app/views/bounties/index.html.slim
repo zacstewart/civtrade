@@ -1,0 +1,16 @@
+= link_to t('bounties.new_bounty'), '#new_bounty_with_pledge',
+  class: 'btn btn-success pull-right',
+  data: {toggle: 'modal'}
+
+h1= t('bounties.bounties')
+
+table.table.table-striped
+  thead
+    tr
+      th= t('bounties.mugshot')
+      th= t('user.name')
+      th= t('pledges.pledges')
+  tbody
+    = render @bounties
+
+= paginate @bounties

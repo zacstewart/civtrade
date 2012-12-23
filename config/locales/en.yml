@@ -14,6 +14,25 @@ en:
     reports: 'Reports'
     shop_reported: 'Shop reported'
     your_report_couldnt_be_saved: "Your report couldn't be saved"
+  user:
+    name: 'Name'
+  bounties:
+    bounties: 'Bounties'
+    new_bounty: 'New bounty'
+    post_bounty: 'Post bounty'
+    bounty_posted: 'Bounty posted'
+    couldnt_be_posted: "Your bounty couldn't be posted. Please try again"
+    wanted: 'Wanted'
+    mugshot: 'Mugshot'
+  pledges:
+    pledges: 'Pledges'
+    add_your_pledge: 'Add your pledge'
+    post: 'Post pledge'
+    created: 'Pledge posted to bounty'
+    couldnt_be_created: "Your pledge couldn't be posted. Please try again"
+    amount_explanation: "Use physicalshop format if you are pledging on of the currencies. This makes it possible to aggregate pledges and valuate bounties"
+    amount: 'Amount'
+    amount_placeholder: '64d'
   signups:
     sign_up: 'Sign up'
     signup_failed: 'Your signup failed for some reason. Please try again'
@@ -24,3 +43,4 @@ en:
     welcome_username: 'Welcome, %{username}!'
     sign_in_failed: 'Sign in failed'
     youve_been_signed_out: "You've been signed out"
+    must_be_signed_in: 'You must be signed in to do that'
