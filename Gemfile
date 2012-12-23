@@ -19,7 +19,7 @@ end
 gem 'jquery-rails'
 
 group :test, :development do
-  gem 'pry'
+  gem 'pry-rails'
   gem 'foreman'
   gem 'forgery'
   gem 'heroku'
