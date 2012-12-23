@@ -4,7 +4,10 @@
     h3= t('shops.new_bounty')
   .modal-body
     = f.input :username
-    = f.input :amount
+    = f.input :amount, placeholder: '64d',
+      input_html: { \
+        title: t('pledges.amount'),
+        data: {content: t('pledges.amount_explanation'), placement: 'bottom'} }
     = f.input :comment, as: :text, input_html: {rows: 5, class: 'input-xlarge'}
   .modal-footer
     = f.submit t('bounties.post_bounty'), class: 'btn btn-primary'
