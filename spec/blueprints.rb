@@ -24,3 +24,16 @@ User.blueprint do
   username { Forgery::Internet.user_name }
   password { Forgery::Basic.password }
 end
+
+Bounty.blueprint do
+  username { Forgery::Internet.user_name }
+end
+
+Pledge.blueprint do
+  user { User.make }
+  bounty { Bounty.make }
+  amount { '64d' }
+  amount_currency { 'd' }
+  amount_value { 64 }
+  comment { Forgery::Basic.text }
+end

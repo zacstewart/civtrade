@@ -15,7 +15,7 @@ class BountyWithPledge
 
   def initialize(*args)
     super
-    @bounty = Bounty.for_username(username).first_or_initialize
+    @bounty = Bounty.for_username(username) || Bounty.new(username: username)
     @pledge = @bounty.pledges.build(user: user, amount: amount, comment: comment)
   end
 

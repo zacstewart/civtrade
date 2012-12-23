@@ -5,15 +5,6 @@ describe 'Sessions' do
     @user = User.make!
   end
 
-  def sign_in(user)
-    visit new_session_path
-    within('#new_session') do
-      fill_in 'Username', with: user.username
-      fill_in 'Password', with: user.password
-      click_on I18n.t('sessions.sign_in')
-    end
-  end
-
   describe 'signing in' do
     context 'with valid credentials' do
       it 'should sign the user in' do
