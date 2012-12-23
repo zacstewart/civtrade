@@ -3,9 +3,5 @@ h1 Sign up
   = f.input :username, placeholder: 'In-game username'
   = f.input :password, placeholder: 'Civtrade password'
   = f.input :password_confirmation, placeholder: 'Civtrade password again'
-  = f.input :minecraft_login, placeholder: 'Minecraft client login'
-  = f.input :minecraft_password,
-    placeholder: 'Minecraft client password',
-    hint: t('signups.minecraft_password_hint')
   .form-actions
     = f.submit t('signups.sign_up'), class: 'btn btn-primary'
