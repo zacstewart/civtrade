@@ -42,7 +42,7 @@ class MinecraftAccountVerifier
         response = http.get("/MinecraftSkins/#{@username}.png")
         if response.code == '200'
           datastream = ChunkyPNG::Datastream.from_blob(response.body)
-          return ChunkyPNG::Image.from_datastream(datastream)
+          ChunkyPNG::Image.from_datastream(datastream)
         end
       end
   end
