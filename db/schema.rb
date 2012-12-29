@@ -11,16 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121223193818) do
+ActiveRecord::Schema.define(:version => 20121229161608) do
 
   create_table "bounties", :force => true do |t|
-    t.string   "username"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.string   "wanted_username"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.integer  "pledges_count"
   end
 
-  add_index "bounties", ["username"], :name => "index_bounties_on_username"
+  add_index "bounties", ["wanted_username"], :name => "index_bounties_on_username"
 
   create_table "items", :force => true do |t|
     t.string   "block_id"
@@ -34,17 +34,16 @@ ActiveRecord::Schema.define(:version => 20121223193818) do
 
   create_table "pledges", :force => true do |t|
     t.integer  "bounty_id"
-    t.integer  "user_id"
     t.string   "amount"
     t.string   "amount_currency"
     t.integer  "amount_value"
     t.text     "comment"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "username"
   end
 
   add_index "pledges", ["bounty_id"], :name => "index_pledges_on_bounty_id"
-  add_index "pledges", ["user_id"], :name => "index_pledges_on_user_id"
 
   create_table "reports", :force => true do |t|
     t.integer  "shop_id"

@@ -8,7 +8,7 @@ describe 'Bounties' do
 
     it 'lists bounties' do
       visit bounties_path
-      expect(page).to have_content(@bounty.username)
+      expect(page).to have_content(@bounty.wanted_username)
     end
   end
 
@@ -37,7 +37,7 @@ describe 'Bounties' do
     def create_bounty
       visit bounties_path
       click_on I18n.t('bounties.new_bounty')
-      fill_in 'Username', with: username
+      fill_in 'Wanted username', with: username
       fill_in 'Amount', with: amount
       fill_in 'Comment', with: comment
       click_button I18n.t('bounties.post_bounty')
@@ -54,7 +54,7 @@ describe 'Bounties' do
 
     context 'when there is a current boutny for the user' do
       before do
-        @bounty = Bounty.make!(username: username)
+        @bounty = Bounty.make!(wanted_username: username)
       end
 
       it 'should add a pledge to the bounty', js: true do

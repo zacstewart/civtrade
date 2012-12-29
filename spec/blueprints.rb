@@ -26,11 +26,11 @@ User.blueprint do
 end
 
 Bounty.blueprint do
-  username { Forgery::Internet.user_name }
+  wanted_username { Forgery::Internet.user_name }
 end
 
 Pledge.blueprint do
-  user { User.make }
+  username { User.make.username }
   bounty { Bounty.make }
   amount { '64d' }
   amount_currency { 'd' }

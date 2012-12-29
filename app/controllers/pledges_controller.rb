@@ -16,6 +16,6 @@ class PledgesController < ApplicationController
 
   private
   def pledge_params
-    params[:pledge].permit(:amount, :comment).merge(user: current_user)
+    params[:pledge].permit(:amount, :comment).merge(username: current_user.username)
   end
 end

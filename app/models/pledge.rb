@@ -1,9 +1,12 @@
 class Pledge < ActiveRecord::Base
   belongs_to :bounty, counter_cache: true
-  belongs_to :user
   has_many :evidences
 
   AMOUNT_PATTERN = %r((\d+)([#{CURRENCIES.join}]))
+
+  def user
+    @user ||= User.named(username)
+  end
 
   def amount=(amt, *args)
     super

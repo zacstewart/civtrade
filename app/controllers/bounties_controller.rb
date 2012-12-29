@@ -21,14 +21,14 @@ class BountiesController < ApplicationController
       redirect_to @bounty.bounty
     else
       flash[:error] = t('bounties.couldnt_be_posted')
-      render :new, status: :bad_request
+      redirect_to :back
     end
   end
 
   private
   def bounty_params
     params[:bounty_with_pledge].permit(
-      :username, :amount, :comment).
-      merge(user: current_user)
+      :wanted_username, :amount, :comment).
+      merge(username: current_user.username)
   end
 end
