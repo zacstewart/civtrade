@@ -7,12 +7,14 @@ A marketplace for [Civcraft][1]
 **Prerequisits**
 
 * PostgreSQL
+* Bundler
 
 **Running**
 
-1. `rake db:setup`
-2. `rake db:seed`
-3. `foreman start`
+1. `bundle install`
+2. `rake db:setup`
+3. `rake db:seed`
+4. `foreman start`
 
 **Testing**
 
