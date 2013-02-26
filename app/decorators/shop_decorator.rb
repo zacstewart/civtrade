@@ -35,7 +35,7 @@ class ShopDecorator < Draper::Base
 
   def as_json(options = {})
     shop.as_json(options).merge(
-      item_block_id: shop.item.block_id
+      item_block_id: shop.item && shop.item.block_id
     )
   end
 
