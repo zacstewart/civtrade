@@ -32,4 +32,14 @@ class ShopDecorator < Draper::Base
   def location
     "#{shop.world.capitalize} #{shop.location_x}, #{shop.location_y}, #{shop.location_z}"
   end
+
+  def as_json(options = {})
+    shop.as_json(options).merge(
+      item_block_id: shop.item.block_id
+    )
+  end
+
+  def to_json(options = {})
+    as_json(options).to_json
+  end
 end

@@ -3,6 +3,11 @@ class ShopsController < ApplicationController
     @shops = Shop.best.page(params[:page])
     @shops = @shops.where('lower(item_name) = lower(?)', params[:search]) if params[:search].present?
     @shops = ShopDecorator.decorate(@shops)
+
+    respond_to do |format|
+      format.json { render json: @shops }
+      format.html
+    end
   end
 
   def create
