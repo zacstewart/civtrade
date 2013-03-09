@@ -1,5 +1,5 @@
 class ChangeUserIdToUsernameOnPledges < ActiveRecord::Migration
-  class Pledge < ActiveRecord::Model
+  class Pledge < ActiveRecord::Base
   end
 
   def up
