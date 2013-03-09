@@ -1,4 +1,6 @@
 class Shop < ActiveRecord::Base
+  include PgSearch
+
   validates :item_name, :world, :location_x, :location_y, :location_z, presence: true
   validates :sell_amount, :sell_price, :sell_currency, presence: true, unless: :buying?
   validates :buy_amount, :buy_price, :buy_currency, presence: true, unless: :selling?
@@ -9,6 +11,8 @@ class Shop < ActiveRecord::Base
   has_many :reports
 
   scope :best, order('reports_count ASC')
+
+  pg_search_scope :search, against: [:item_name, :city]
 
   def item_name=(name)
     super

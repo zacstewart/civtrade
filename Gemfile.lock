@@ -113,6 +113,9 @@ GEM
     netrc (0.7.7)
     nokogiri (1.5.5)
     pg (0.14.1)
+    pg_search (0.5.5)
+      activerecord (>= 3)
+      activesupport (>= 3)
     polyglot (0.3.3)
     pry (0.9.10)
       coderay (~> 1.0.5)
@@ -242,6 +245,7 @@ DEPENDENCIES
   launchy
   machinist
   pg
+  pg_search
   pry-rails
   rails (= 3.2.9)
   rails-erd
