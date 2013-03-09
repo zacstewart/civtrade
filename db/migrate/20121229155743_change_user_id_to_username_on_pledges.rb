@@ -1,4 +1,7 @@
 class ChangeUserIdToUsernameOnPledges < ActiveRecord::Migration
+  class Pledge < ActiveRecord::Model
+  end
+
   def up
     add_column :pledges, :username, :string
 
