@@ -1,5 +1,7 @@
 # Civtrade
 
+[![Build Status](https://travis-ci.org/zacstewart/civtrade.png?branch=master)](https://travis-ci.org/zacstewart/civtrade)
+
 A marketplace for [Civcraft][1]
 
 ## Public API
