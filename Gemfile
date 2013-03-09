@@ -23,15 +23,17 @@ end
 
 gem 'jquery-rails'
 
+group :development do
+  gem 'foreman'
+  gem 'heroku'
+  gem 'rails-erd'
+end
+
 group :test, :development do
   gem 'pry-rails'
-  gem 'foreman'
   gem 'forgery'
-  gem 'heroku'
   gem 'machinist'
   gem 'rspec-rails'
-  gem 'tddium'
-  gem 'rails-erd'
 end
 
 group :test do
