@@ -23,10 +23,11 @@ A marketplace for [Civcraft][1]
 
 **Running**
 
-1. `bundle install`
-2. `rake db:setup`
-3. `rake db:seed`
-4. `foreman start`
+1. `cp config/database.yml.example config/database.yml`
+2. `bundle install`
+3. `rake db:setup`
+4. `rake db:seed`
+5. `foreman start`
 
 **Testing**
 
