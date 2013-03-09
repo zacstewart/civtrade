@@ -2,7 +2,19 @@
 
 A marketplace for [Civcraft][1]
 
-## Setting up
+## Public API
+
+### Shop index `GET /shops`
+
+**Parameters**:
+
+* _search_: constrains index to shops with a matching item name or city.
+  Example: 'iron aristopolis'
+
+* _page_: which page you'd like to receive. API currently returns 25 shops per
+  page.
+
+## Development
 
 **Prerequisits**
 
