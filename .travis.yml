@@ -1,0 +1,3 @@
+before_script:
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database civ_trade_test;' -U postgres

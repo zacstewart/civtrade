@@ -1,0 +1,4 @@
+test:
+  adapter: postgresql
+  database: civ_trade_test
+  username: postgres
