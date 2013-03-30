@@ -12,7 +12,7 @@ class Shop < ActiveRecord::Base
 
   scope :best, order('reports_count ASC')
 
-  pg_search_scope :search, against: [:item_name, :city]
+  pg_search_scope :search, against: [:item_name, :city, :seller_username]
 
   def item_name=(name)
     super
