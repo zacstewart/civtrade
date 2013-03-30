@@ -9,6 +9,7 @@ en:
     shop_successfully_listed: 'Shop successfully listed'
     shop_listing_failed_because:  'Shop listing failed because: %{errors}'
     item_name: 'Item'
+    seller: 'Seller'
   reports:
     report: 'Report'
     reports: 'Reports'

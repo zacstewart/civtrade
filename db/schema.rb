@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130302233538) do
+ActiveRecord::Schema.define(:version => 20130330163859) do
 
   create_table "items", :force => true do |t|
     t.string   "block_id"
@@ -40,17 +40,19 @@ ActiveRecord::Schema.define(:version => 20130302233538) do
     t.float    "location_x"
     t.float    "location_y"
     t.float    "location_z"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.integer  "buy_amount"
     t.integer  "sell_amount"
     t.string   "world"
-    t.integer  "reports_count", :default => 0
+    t.integer  "reports_count",   :default => 0
     t.string   "city"
     t.integer  "item_id"
+    t.string   "seller_username"
   end
 
   add_index "shops", ["item_id"], :name => "index_shops_on_item_id"
+  add_index "shops", ["seller_username"], :name => "index_shops_on_seller_username"
 
   create_table "users", :force => true do |t|
     t.string   "username"

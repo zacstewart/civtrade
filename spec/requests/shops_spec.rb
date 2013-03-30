@@ -4,12 +4,14 @@ describe 'Shops' do
   describe 'creating' do
     before do
       @item = Item.make!
+      @user = User.make!
     end
 
     def create_shop
       visit shops_path
       click_on I18n.t('shops.new_shop')
       fill_in 'Item', with: @item.name
+      fill_in 'Seller username', with: @user.username
       fill_in 'Sell amount', with: Forgery::Basic.number
       fill_in 'Sell price', with: Forgery::Basic.number
       select 'c', from: 'Sell currency'
@@ -27,6 +29,11 @@ describe 'Shops' do
     it 'adds the shop to the directory' do
       create_shop
       expect(page).to have_content(@item.name)
+    end
+
+    it "displays the seller's name" do
+      create_shop
+      expect(page).to have_content(@user.username)
     end
 
     it "has a link to its item's page" do
