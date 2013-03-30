@@ -1,4 +1,6 @@
-= link_to t('shops.new_shop'), '#new_shop', class: 'btn btn-success pull-right', data: {toggle: 'modal'}
+= link_to t('shops.new_shop'), new_shop_path,
+  class: 'btn btn-success pull-right'
+
 = form_tag shops_path, class: 'form-search', method: :get do
   = text_field_tag :search, params[:search], placeholder: 'Search…', class: 'input-medium search-query'
   = button_tag t('shops.search'), type: 'submit', class: 'btn'

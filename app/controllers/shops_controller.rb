@@ -1,4 +1,8 @@
 class ShopsController < ApplicationController
+  def new
+    @shop = ShopDecorator.new(Shop.new)
+  end
+
   def index
     @shops = Shop.best.page(params[:page])
     @shops = @shops.search(params[:search]) if params[:search].present?

@@ -1,20 +1,15 @@
-= simple_form_for(shop, html: {class: 'form-horizontal modal hide fade'}) do |f|
-  .modal-header
-    button type="button" class="close" data-dismiss="modal" ×
-    h3= t('shops.new_shop')
-  .modal-body
-    = f.input :item_name, label: t('shops.item_name')
-    = f.input :seller_username
-    = f.input :sell_amount
-    = f.input :sell_price
-    = f.input :sell_currency, collection: CURRENCIES
-    = f.input :buy_amount
-    = f.input :buy_price
-    = f.input :buy_currency, collection: CURRENCIES
-    = f.input :city
-    = f.input :world, collection: WORLDS.map {|w| [w.capitalize, w] }
-    = f.input :location_x
-    = f.input :location_y
-    = f.input :location_z
-  .modal-footer
-    = f.submit t('shops.list_shop'), class: 'btn btn-primary'
+= simple_form_for(shop, html: {class: 'form-horizontal'}) do |f|
+  = f.input :item_name, label: t('shops.item_name')
+  = f.input :seller_username
+  = f.input :sell_amount
+  = f.input :sell_price
+  = f.input :sell_currency, collection: CURRENCIES
+  = f.input :buy_amount
+  = f.input :buy_price
+  = f.input :buy_currency, collection: CURRENCIES
+  = f.input :city
+  = f.input :world, collection: WORLDS.map {|w| [w.capitalize, w] }
+  = f.input :location_x
+  = f.input :location_y
+  = f.input :location_z
+  = f.submit t('shops.list_shop'), class: 'btn btn-primary'
