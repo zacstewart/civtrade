@@ -107,7 +107,7 @@ GEM
     multi_json (1.7.2)
     netrc (0.7.7)
     nokogiri (1.5.5)
-    pg (0.14.1)
+    pg (0.15.0)
     pg_search (0.5.5)
       activerecord (>= 3)
       activesupport (>= 3)
