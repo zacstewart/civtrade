@@ -1,4 +1,6 @@
 class ShopsController < ApplicationController
+  protect_from_forgery except: :create
+
   def new
     @shop = ShopDecorator.new(Shop.new)
   end
