@@ -17,7 +17,11 @@ class ShopsController < ApplicationController
   end
 
   def create
-    @shop = Shop.new(shop_params)
+    @shop = Shop.
+      where(shop_params.slice(:location_x, :location_y, :location_z)).
+      first_or_initialize
+
+    @shop.assign_attributes(shop_params)
 
     respond_to do |format|
       if @shop.save
