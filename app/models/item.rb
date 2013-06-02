@@ -14,6 +14,6 @@ class Item < ActiveRecord::Base
   end
 
   def self.named(term)
-    where('lower(name) = lower(?)', term)
+    where('lower(name) = lower(?) OR block_id = ?', term, term)
   end
 end
