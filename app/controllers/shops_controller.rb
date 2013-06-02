@@ -19,14 +19,21 @@ class ShopsController < ApplicationController
   def create
     @shop = Shop.new(shop_params)
 
-    if @shop.save
-      flash[:success] = t('shops.shop_successfully_listed')
-      redirect_to Shop
-    else
-      flash[:error] = t('shops.shop_listing_failed')
-      render :new
+    respond_to do |format|
+      if @shop.save
+        format.html do
+          flash[:success] = t('shops.shop_successfully_listed')
+          redirect_to Shop
+        end
+        format.json { render json: @shop, status: :created }
+      else
+        format.html do
+          flash[:error] = t('shops.shop_listing_failed')
+          render :new
+        end
+        format.json { head :bad_reqest }
+      end
     end
-
   end
 
   private
