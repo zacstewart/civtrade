@@ -1,5 +1,9 @@
 class Shop < ActiveRecord::Base
+  CIVCRAFT_SERVER_PATTERN = /mc\.civcraft\.vg:25565|untamedears.com:25565/
+
   include PgSearch
+
+  attr_accessor :server
 
   validates :item_name, :world, :location_x, :location_y, :location_z, presence: true
   validates :sell_amount, :sell_price, :sell_currency, presence: true, unless: :buying?
@@ -26,5 +30,10 @@ class Shop < ActiveRecord::Base
 
   def selling?
     sell_amount.present? && sell_price.present? && sell_currency.present?
+  end
+
+  def save
+    return false unless server.blank? || server =~ CIVCRAFT_SERVER_PATTERN
+    super
   end
 end
