@@ -7,7 +7,7 @@ class ShopsController < ApplicationController
 
   def index
     @shops = Shop.best.page(params[:page])
-    @shops = @shops.search(params[:search]) if params[:search].present?
+
     @shops = ShopDecorator.decorate(@shops)
 
     respond_to do |format|

@@ -2,6 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '~> 3.2.9'
 gem 'pg'
+gem 'mongoid'
+
 gem 'slim'
 gem 'bootstrap-sass'
 gem 'kaminari'

@@ -14,6 +14,8 @@ class Shop < ActiveRecord::Base
   belongs_to :item
   has_many :reports
 
+  after_save { IndexedShop.index_shop self }
+
   scope :best, order('reports_count ASC')
 
   pg_search_scope :search, against: [:item_name, :city, :seller_username]

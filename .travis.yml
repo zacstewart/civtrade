@@ -5,6 +5,7 @@ rvm:
   - 1.9.3
 env:
   - DB=postgresql
+services: mongodb
 before_script:
   - cp config/database.yml.travis config/database.yml
 script:
