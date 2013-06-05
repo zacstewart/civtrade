@@ -4,6 +4,7 @@ CivTrade::Application.routes.draw do
   resources :shops, only: [:new, :index, :create] do
     resources :reports, only: :create
   end
+  resource :search, only: :show
 
   resource :signup
   resource :session
