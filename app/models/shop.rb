@@ -1,6 +1,6 @@
 class Shop < ActiveRecord::Base
   CIVCRAFT_SERVER_PATTERN = /mc\.civcraft\.vg:25565|untamedears.com:25565/
-  CIVCRAFT_SERVER_PATTERN = /(127.0.0.1|localhost):25565/
+  LOCALHOST = /(127.0.0.1|localhost):25565/
 
   include PgSearch
 
