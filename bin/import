@@ -1,0 +1,5 @@
+#!/bin/sh
+
+heroku pgbackups:capture
+curl -o tmp/latest.dump `heroku pgbackups:url -a civtrade`
+pg_restore --verbose --clean --no-acl --no-owner -h localhost -d civ_trade_development tmp/latest.dump
