@@ -11,7 +11,6 @@ class ShopsController < ApplicationController
     @shops = ShopDecorator.decorate(@shops)
 
     respond_to do |format|
-      format.json { render json: @shops }
       format.html
     end
   end
@@ -29,7 +28,6 @@ class ShopsController < ApplicationController
           flash[:success] = t('shops.shop_successfully_listed')
           redirect_to Shop
         end
-        format.json { render json: @shop, status: :created }
       else
         format.html do
           flash[:error] = t('shops.shop_listing_failed')

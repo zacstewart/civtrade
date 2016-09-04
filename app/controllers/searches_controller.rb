@@ -9,7 +9,6 @@ class SearchesController < ApplicationController
     @shops = ShopDecorator.decorate(@shops)
 
     respond_to do |format|
-      format.json { render json: @shops }
       format.html
     end
   end
