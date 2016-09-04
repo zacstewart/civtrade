@@ -1,5 +1,5 @@
 CivTrade::Application.routes.draw do
-  resources :items, only: [:index, :show]
+  resources :items, only: :index
 
   resources :shops, only: [:new, :index, :create] do
     resources :reports, only: :create
