@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130330163859) do
+ActiveRecord::Schema.define(:version => 20160904155814) do
 
   create_table "items", :force => true do |t|
     t.string   "block_id"
@@ -32,26 +32,25 @@ ActiveRecord::Schema.define(:version => 20130330163859) do
   add_index "reports", ["shop_id"], :name => "index_reports_on_shop_id"
 
   create_table "shops", :force => true do |t|
-    t.string   "item_name"
-    t.integer  "buy_price"
-    t.string   "buy_currency"
-    t.integer  "sell_price"
-    t.string   "sell_currency"
+    t.string   "output_item_name"
+    t.integer  "input_amount"
+    t.string   "input_item_name"
     t.float    "location_x"
     t.float    "location_y"
     t.float    "location_z"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.integer  "buy_amount"
-    t.integer  "sell_amount"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.integer  "output_amount"
     t.string   "world"
-    t.integer  "reports_count",   :default => 0
+    t.integer  "reports_count",    :default => 0
     t.string   "city"
-    t.integer  "item_id"
+    t.integer  "output_item_id"
     t.string   "seller_username"
+    t.integer  "input_item_id"
   end
 
-  add_index "shops", ["item_id"], :name => "index_shops_on_item_id"
+  add_index "shops", ["input_item_id"], :name => "index_shops_on_input_item_id"
+  add_index "shops", ["output_item_id"], :name => "index_shops_on_item_id"
   add_index "shops", ["seller_username"], :name => "index_shops_on_seller_username"
 
   create_table "users", :force => true do |t|

@@ -8,7 +8,8 @@ en:
     list_shop: 'List Shop'
     shop_successfully_listed: 'Shop successfully listed'
     shop_listing_failed:  'Shop listing failed'
-    item_name: 'Item'
+    output_item_name: 'Output Item'
+    input_item_name: 'Input Item'
     seller: 'Seller'
   reports:
     report: 'Report'

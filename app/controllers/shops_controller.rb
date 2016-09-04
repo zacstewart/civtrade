@@ -2,7 +2,7 @@ class ShopsController < ApplicationController
   protect_from_forgery except: :create
 
   def new
-    @shop = ShopDecorator.new(Shop.new)
+    @shop = Shop.new
   end
 
   def index
@@ -41,9 +41,10 @@ class ShopsController < ApplicationController
   private
 
   def shop_params
-    params[:shop].permit(:item_name, :seller_username,
-                         :buy_amount ,:buy_price, :buy_currency,
-                         :sell_amount, :sell_price, :sell_currency,
-                         :city, :server, :world, :location_x, :location_y, :location_z)
+    params[:shop].permit(
+      :output_item_name, :output_amount,
+      :input_item_name, :input_amount,
+      :seller_username, :city, :server,
+      :world, :location_x, :location_y, :location_z)
   end
 end

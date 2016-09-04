@@ -1,12 +1,9 @@
-= simple_form_for(shop, html: {class: 'form-horizontal'}) do |f|
-  = f.input :item_name, label: t('shops.item_name')
+= simple_form_for(shop, url: shops_path, html: {class: 'form-horizontal'}) do |f|
+  = f.input :output_item_name, label: t('shops.output_item_name')
+  = f.input :output_amount
+  = f.input :input_item_name, label: t('shops.input_item_name')
+  = f.input :input_amount
   = f.input :seller_username
-  = f.input :sell_amount
-  = f.input :sell_price
-  = f.input :sell_currency, collection: CURRENCIES
-  = f.input :buy_amount
-  = f.input :buy_price
-  = f.input :buy_currency, collection: CURRENCIES
   = f.input :city
   = f.input :world, collection: WORLDS.map {|w| [w.capitalize, w] }
   = f.input :location_x

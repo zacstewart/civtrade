@@ -1,5 +1,5 @@
 $ ->
-  $('#shop_item_name').typeahead
+  $('#shop_output_item_name,#shop_input_item_name').typeahead
     source: (query, process) ->
       $.ajax
         url: '/items'
