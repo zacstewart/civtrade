@@ -37,8 +37,9 @@ class Shop < ActiveRecord::Base
   end
 
   private
+
   def server_is_test_or_civcraft
-    unless server.blank?  || server =~ CIVCRAFT_SERVER_PATTERN || server =~ LOCALHOST
+    unless server.blank? || server =~ CIVCRAFT_SERVER_PATTERN || server =~ LOCALHOST
       errors.add(:server, "You can only list Civcraft shops")
     end
   end
