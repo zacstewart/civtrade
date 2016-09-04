@@ -21,23 +21,6 @@ en:
     get_verified: 'Get verified'
     verify_me: 'Verify me!'
     you_have_been_verified: "Congratulations, you've been verified"
-  bounties:
-    bounties: 'Bounties'
-    new_bounty: 'New bounty'
-    post_bounty: 'Post bounty'
-    bounty_posted: 'Bounty posted'
-    couldnt_be_posted: "Your bounty couldn't be posted. Please try again"
-    wanted: 'Wanted'
-    mugshot: 'Mugshot'
-  pledges:
-    pledges: 'Pledges'
-    add_your_pledge: 'Add your pledge'
-    post: 'Post pledge'
-    created: 'Pledge posted to bounty'
-    couldnt_be_created: "Your pledge couldn't be posted. Please try again"
-    amount_explanation: "Use physicalshop format if you are pledging one of the currencies. This makes it possible to aggregate pledges and valuate bounties"
-    amount: 'Amount'
-    amount_placeholder: '64d'
   signups:
     sign_up: 'Sign up'
     signup_failed: 'Your signup failed for some reason. Please try again'
