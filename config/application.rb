@@ -67,5 +67,9 @@ module CivTrade
 
     # Don't load app on asset procompile for Heroku
     config.assets.initialize_on_precompile = false
+
+    config.generators do |g|
+      g.orm :active_record
+    end
   end
 end
