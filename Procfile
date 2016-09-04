@@ -1,2 +1,2 @@
 web: rails server -p $PORT
-mongodb: mongod
+mongodb: mongod --dbpath db/mongodb_development
