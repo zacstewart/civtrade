@@ -5,6 +5,7 @@ class SearchesController < ApplicationController
     if params[:near_x].present? || params[:near_z].present?
       @shops = @shops.near(location: [params[:near_x].to_i, params[:near_z].to_i])
     end
+
     @shops = @shops.to_a.map(&:shop)
     @shops = ShopDecorator.decorate(@shops)
 
