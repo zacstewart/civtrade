@@ -1,6 +1,8 @@
-namespace :shops do
+namespace :search do
   desc 'Reindexes all shops in MongoDB'
   task reindex: :environment do
+    IndexedShop.delete_all
+
     Shop.find_each do |shop|
       IndexedShop.index_shop shop
     end
