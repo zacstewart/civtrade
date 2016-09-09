@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160904155814) do
+ActiveRecord::Schema.define(:version => 20160909194236) do
 
   create_table "items", :force => true do |t|
     t.string   "block_id"
@@ -38,20 +38,19 @@ ActiveRecord::Schema.define(:version => 20160904155814) do
     t.float    "location_x"
     t.float    "location_y"
     t.float    "location_z"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.integer  "output_amount"
-    t.string   "world"
-    t.integer  "reports_count",    :default => 0
-    t.string   "city"
+    t.string   "world_uuid"
+    t.integer  "reports_count",       :default => 0
     t.integer  "output_item_id"
-    t.string   "seller_username"
     t.integer  "input_item_id"
+    t.integer  "which",               :default => 1, :null => false
+    t.integer  "exchanges_available", :default => 0, :null => false
   end
 
   add_index "shops", ["input_item_id"], :name => "index_shops_on_input_item_id"
   add_index "shops", ["output_item_id"], :name => "index_shops_on_item_id"
-  add_index "shops", ["seller_username"], :name => "index_shops_on_seller_username"
 
   create_table "users", :force => true do |t|
     t.string   "username"

@@ -3,10 +3,10 @@
   = f.input :output_amount
   = f.input :input_item_name, label: t('shops.input_item_name')
   = f.input :input_amount
-  = f.input :seller_username
-  = f.input :city
-  = f.input :world, collection: WORLDS.map {|w| [w.capitalize, w] }
+  = f.input :exchanges_available
+  = f.input :world_uuid, collection: World.all.invert
   = f.input :location_x
   = f.input :location_y
   = f.input :location_z
+  = f.input :which
   = f.submit t('shops.list_shop'), class: 'btn btn-primary'

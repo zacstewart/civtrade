@@ -8,16 +8,12 @@ class IndexedShop
   field :output_item_id,   type: Integer
   field :output_item_name, type: Array
 
-  field :city,             type: Array
-  field :seller_username,  type: String
   field :location,         type: Array
 
   index(input_item_id: 1)
   index(input_item_name: 1)
   index(output_item_id: 1)
   index(output_item_name: 1)
-  index(city: 1)
-  index(seller_username: 1)
   index({location: '2d'}, min: -WORLD_RADIUS, max: WORLD_RADIUS)
 
   def shop
@@ -32,8 +28,6 @@ class IndexedShop
       input_item_name:  indexable_input_item_name(shop),
       output_item_id:   shop.output_item_id,
       output_item_name: indexable_output_item_name(shop),
-      city:             indexable_city(shop),
-      seller_username:  indexable_seller_username(shop),
       location:         [shop.location_x, shop.location_z]
     )
 
@@ -47,9 +41,7 @@ class IndexedShop
       [input_item_id: query],
       [input_item_name: query],
       [output_item_id: query],
-      [output_item_name: query],
-      [city: query],
-      [seller_username: query]
+      [output_item_name: query]
     )
   end
 
@@ -61,13 +53,5 @@ class IndexedShop
 
   def self.indexable_output_item_name(shop)
     (shop.output_item.present? ? shop.output_item.name : shop.output_item_name).downcase.split
-  end
-
-  def self.indexable_city(shop)
-    shop.city && shop.city.downcase.split
-  end
-
-  def self.indexable_seller_username(shop)
-    shop.seller_username && shop.seller_username.downcase
   end
 end

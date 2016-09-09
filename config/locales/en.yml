@@ -10,7 +10,7 @@ en:
     shop_listing_failed:  'Shop listing failed'
     output_item_name: 'Output Item'
     input_item_name: 'Input Item'
-    seller: 'Seller'
+    exchanges_available: 'Exchanges Available'
   reports:
     report: 'Report'
     reports: 'Reports'

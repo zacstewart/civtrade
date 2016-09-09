@@ -3,8 +3,7 @@ tr(id=dom_id(shop))
   td= link_to shop.output_item_name, search_path(search: shop.output_item_name)
   td= shop.input_amount
   td= link_to shop.shop.input_item_name, search_path(search: shop.input_item_name)
-  td= shop.seller_username
-  td= shop.city
+  td= shop.exchanges_available
   td= shop.location
   td.reports
     span.badge.badge-inverse= shop.reports_count

@@ -16,14 +16,10 @@ class ShopsController < ApplicationController
   end
 
   def create
-    @shop = Shop.
-      where(shop_params.slice(:location_x, :location_y, :location_z)).
-      first_or_initialize
-
-    @shop.assign_attributes(shop_params)
+    @shop = Shop.safely_create(shop_params)
 
     respond_to do |format|
-      if @shop.save
+      if @shop.persisted?
         format.html do
           flash[:success] = t('shops.shop_successfully_listed')
           redirect_to Shop
@@ -33,7 +29,6 @@ class ShopsController < ApplicationController
           flash[:error] = t('shops.shop_listing_failed')
           render :new
         end
-        format.json { head :bad_reqest }
       end
     end
   end
@@ -41,10 +36,10 @@ class ShopsController < ApplicationController
   private
 
   def shop_params
-    params[:shop].permit(
+    params.require(:shop).permit(
       :output_item_name, :output_amount,
       :input_item_name, :input_amount,
-      :seller_username, :city, :server,
-      :world, :location_x, :location_y, :location_z)
+      :seller_username, :city, :server_address, :world_uuid, :which,
+      :location_x, :location_y, :location_z, :exchanges_available)
   end
 end

@@ -1,25 +1,39 @@
 class Shop < ActiveRecord::Base
-  CIVCRAFT_SERVER_PATTERN = /mc\.civcraft\.vg:25565|untamedears.com:25565/
-  LOCALHOST = /(127.0.0.1|localhost):25565/
+  CIVCRAFT_SERVER_PATTERN = /mc\.civcraft\.co|149\.56\.23\.82/
+  LOCALHOST = /(127.0.0.1|localhost)/
 
   include PgSearch
 
-  attr_accessor :server
+  attr_accessor :server_address
 
   validates :output_item_name, :output_amount, :input_item_name, :input_amount,
-    :world, :location_x, :location_y, :location_z, presence: true
-  validates :world, inclusion: {in: WORLDS}
+    :world_uuid, :location_x, :location_y, :location_z, :which,
+    :exchanges_available, presence: true
+  validates :world_uuid, inclusion: {in: World.ids}
   validate :server_is_test_or_civcraft
 
   belongs_to :output_item, class_name: 'Item'
   belongs_to :input_item, class_name: 'Item'
   has_many :reports
 
-  after_save { IndexedShop.index_shop self }
+  after_save do
+    IndexedShop.index_shop self
+  end
 
   scope :best, order('reports_count ASC')
 
   pg_search_scope :search, against: [:input_item_name, :output_item_name, :city, :seller_username]
+
+  def self.safely_create(params)
+    location_params = params.slice(
+      :world, :location_x, :location_y, :location_z, :which)
+    where(location_params).first_or_initialize.tap do |shop|
+      transaction do
+        shop.update_attributes!(params)
+        shop.reports.destroy_all
+      end
+    end
+  end
 
   def output_item_name=(name)
     super
@@ -33,11 +47,17 @@ class Shop < ActiveRecord::Base
     self.input_item = items.first if items.any?
   end
 
+  def world
+    World.find(world_uuid)
+  end
+
   private
 
   def server_is_test_or_civcraft
-    unless server.blank? || server =~ CIVCRAFT_SERVER_PATTERN || server =~ LOCALHOST
-      errors.add(:server, "You can only list Civcraft shops")
+    return if server_address.blank?
+
+    unless server_address =~ Regexp.union(CIVCRAFT_SERVER_PATTERN, LOCALHOST)
+      errors.add(:server_address, "You can only list Civcraft shops")
     end
   end
 end
