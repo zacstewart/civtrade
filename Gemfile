@@ -28,8 +28,6 @@ end
 gem 'jquery-rails'
 
 group :development do
-  gem 'foreman'
-  gem 'heroku'
   gem 'rails-erd'
 end
 
