@@ -8,10 +8,8 @@ table.table.table-striped
     tr
       th(colspan=2)= t('shops.input')
       th(colspan=2)= t('shops.output')
-      th= t('shops.seller')
-      th= t('shops.nearest_city')
+      th= t('shops.exchanges_available')
       th= t('shops.location')
-      th= t('reports.reports')
-      th
+      th(colspan=2)= t('reports.reports')
   tbody
     = render @shops
