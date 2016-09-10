@@ -238,3 +238,9 @@ DEPENDENCIES
   strong_parameters
   uglifier (>= 1.0.3)
   virtus
+
+RUBY VERSION
+   ruby 2.1.1p76
+
+BUNDLED WITH
+   1.13.0
