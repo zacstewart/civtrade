@@ -6,7 +6,7 @@ gem 'pg'
 gem 'mongoid'
 
 gem 'slim'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.1.1.0'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'draper'
