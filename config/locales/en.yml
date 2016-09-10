@@ -2,7 +2,6 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
   shops:
     new_shop: 'New Shop'
     list_shop: 'List Shop'
@@ -11,6 +10,8 @@ en:
     output_item_name: 'Output Item'
     input_item_name: 'Input Item'
     exchanges_available: 'Exchanges Available'
+    world: 'World'
+    which: 'Which'
   reports:
     report: 'Report'
     reports: 'Reports'

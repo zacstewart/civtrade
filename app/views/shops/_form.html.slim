@@ -4,7 +4,7 @@
   = f.input :input_item_name, label: t('shops.input_item_name')
   = f.input :input_amount
   = f.input :exchanges_available
-  = f.input :world_uuid, collection: World.all.invert
+  = f.input :world_uuid, collection: World.all.invert, label: t('shops.world')
   = f.input :location_x
   = f.input :location_y
   = f.input :location_z
