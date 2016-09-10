@@ -1,4 +1,4 @@
-CivTrade::Application.routes.draw do
+Rails.application.routes.draw do
   resources :items, only: :index
 
   resources :shops, only: [:new, :index, :create] do

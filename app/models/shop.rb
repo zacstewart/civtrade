@@ -20,7 +20,7 @@ class Shop < ActiveRecord::Base
     IndexedShop.index_shop self
   end
 
-  scope :best, order('reports_count ASC')
+  scope :best, -> { order('reports_count ASC') }
 
   pg_search_scope :search, against: [:input_item_name, :output_item_name, :city, :seller_username]
 
