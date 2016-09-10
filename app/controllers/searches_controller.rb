@@ -7,10 +7,11 @@ class SearchesController < ApplicationController
     end
 
     @shops = @shops.to_a.map(&:shop)
-    @shops = ShopDecorator.decorate(@shops)
 
     respond_to do |format|
-      format.html
+      format.html do
+        @shops = ShopsDecorator.decorate(@shops)
+      end
     end
   end
 end

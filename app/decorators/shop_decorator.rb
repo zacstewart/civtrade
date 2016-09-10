@@ -1,4 +1,5 @@
-class ShopDecorator < Draper::Base
+class ShopDecorator < Draper::Decorator
+  delegate_all
   decorates :shop
 
   def input_item_name

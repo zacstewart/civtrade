@@ -1,4 +1,5 @@
-class UserDecorator < Draper::Base
+class UserDecorator < Draper::Decorator
+  delegate_all
   decorates :user
 
   def avatar(size=180)

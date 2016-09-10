@@ -8,10 +8,11 @@ class ShopsController < ApplicationController
   def index
     @shops = Shop.best.page(params[:page])
 
-    @shops = ShopDecorator.decorate(@shops)
 
     respond_to do |format|
-      format.html
+      format.html do
+        @shops = ShopsDecorator.decorate(@shops)
+      end
     end
   end
 
