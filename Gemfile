@@ -1,16 +1,15 @@
 ruby '2.1.1'
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.2.9'
+gem 'rails', '~> 4.0.0'
 gem 'pg'
 gem 'mongoid'
 
 gem 'slim'
-gem 'bootstrap-sass', '~> 3.1.1.0'
+gem 'bootstrap-sass', '2.2.1.1'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'draper'
-gem 'strong_parameters'
 gem 'simple_form'
 gem 'bcrypt-ruby'
 gem 'virtus'
