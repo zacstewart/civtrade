@@ -16,6 +16,7 @@ gem 'virtus'
 gem 'chunky_png'
 gem 'state_machine'
 gem 'pg_search'
+gem 'active_model_serializers'
 
 group :assets do
   gem 'sass-rails'

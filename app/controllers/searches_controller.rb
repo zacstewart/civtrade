@@ -12,6 +12,10 @@ class SearchesController < ApplicationController
       format.html do
         @shops = ShopsDecorator.decorate(@shops)
       end
+
+      format.json do
+        render json: @shops
+      end
     end
   end
 end

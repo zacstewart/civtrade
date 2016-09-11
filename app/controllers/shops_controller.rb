@@ -13,6 +13,9 @@ class ShopsController < ApplicationController
       format.html do
         @shops = ShopsDecorator.decorate(@shops)
       end
+      format.json do
+        render json: @shops
+      end
     end
   end
 
@@ -38,9 +41,8 @@ class ShopsController < ApplicationController
 
   def shop_params
     params.require(:shop).permit(
-      :output_item_name, :output_amount,
-      :input_item_name, :input_amount,
-      :seller_username, :city, :server_address, :world_uuid, :which,
-      :location_x, :location_y, :location_z, :exchanges_available)
+      :output_item_name, :output_amount, :input_item_name, :input_amount,
+      :server_address, :world_uuid, :which, :location_x, :location_y,
+      :location_z, :exchanges_available)
   end
 end
