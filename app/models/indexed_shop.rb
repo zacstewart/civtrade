@@ -8,6 +8,7 @@ class IndexedShop
   field :output_item_id,   type: Integer
   field :output_item_name, type: Array
 
+  field :world_uuid,       type: String
   field :location,         type: Array
 
   index(input_item_id: 1)
@@ -20,6 +21,8 @@ class IndexedShop
     @shop ||= Shop.find(shop_id)
   end
 
+  scope :in_world, ->(world_uuid) { where(world_uuid: world_uuid) }
+
   def self.index_shop(shop)
     index_shop = self.where(shop_id: shop.id).first_or_initialize
 
@@ -28,6 +31,7 @@ class IndexedShop
       input_item_name:  indexable_input_item_name(shop),
       output_item_id:   shop.output_item_id,
       output_item_name: indexable_output_item_name(shop),
+      world_uuid:       shop.world_uuid,
       location:         [shop.location_x, shop.location_z]
     )
 
