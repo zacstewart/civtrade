@@ -1,5 +1,6 @@
 = form_tag search_path, class: 'form-search', method: :get do
   = text_field_tag :search, params[:search], placeholder: 'Search…', class: 'input-medium search-query'
+  = select_tag :world_uuid, options_for_select(World.all.invert, params[:world_uuid]), prompt: 'World', class: 'input-medium search-query'
   = text_field_tag :near_x, params[:near_x], placeholder: 'x', class: 'input-mini search-query'
   = text_field_tag :near_z, params[:near_z], placeholder: 'z', class: 'input-mini search-query'
   = button_tag t('shops.search'), type: 'submit', class: 'btn'
