@@ -8,6 +8,8 @@ class SearchesController < ApplicationController
       @shops = @shops.near(location: [params[:near_x].to_i, params[:near_z].to_i])
     end
 
+    @shops = @shops.limit(100)
+
     @shops = @shops.to_a.map(&:shop)
 
     respond_to do |format|
